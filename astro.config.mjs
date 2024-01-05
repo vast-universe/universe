@@ -3,12 +3,15 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-	base: '/',
+	base: './',
 	site: "https://vast-universe.github.io/universe/",
-	trailingSlash:'never',
+	trailingSlash: 'never',
 	integrations: [tailwind()],
 	image: {
 		service: squooshImageService(),
+	},
+	build: {
+		format: 'file',
 	},
 	vite: {
 		build: {
