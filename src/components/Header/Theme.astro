@@ -1,0 +1,165 @@
+---
+import Icon from "../Icon/Icon.astro";
+---
+
+<button id="switch-theme">
+    <Icon icon="theme" class="fill-black dark:fill-[#f3d05e]" />
+</button>
+
+<script type="text/javascript">
+    const themeToggle = document.querySelector("#switch-theme");
+
+    themeToggle.addEventListener("click", () => {
+        const isLight = document.body.classList.contains("light");
+        isLight ? enableDarkMode() : enableLightMode();
+        console.log(isLight);
+        localStorage.setItem("theme", isLight ? "dark" : "light");
+    });
+
+    function enableDarkMode() {
+        document.body.classList.remove("light");
+        document.body.classList.add("dark");
+    }
+
+    function enableLightMode() {
+        document.body.classList.remove("dark");
+        document.body.classList.add("light");
+    }
+
+    function setThemePreference() {
+        const theme = localStorage.getItem("theme");
+        if (theme) {
+            if (theme === "dark") {
+                enableDarkMode();
+				return
+            }
+            enableLightMode();
+            return;
+        }
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            enableDarkMode();
+            return;
+        }
+        enableLightMode();
+    }
+
+    document.onload = setThemePreference();
+</script>
+
+<style type="text/css" is:global>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;0,700;0,900;1,200;1,400;1,600;1,700;1,900&display=swap");
+
+    :root {
+        --sun-clr: #f3d05e;
+        --dark-clr: hsl(246, 23%, 16%);
+        --light-clr: hsl(240, 100%, 98%);
+        --clr-foreground: var(--dark-clr); /*hsl(0 0% 0%);*/
+        --clr-background: var(--light-clr);
+    }
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --clr-background: var(--dark-clr);
+            --clr-foreground: var(--light-clr);
+        }
+    }
+    .light {
+        --clr-foreground: var(--dark-clr);
+        --clr-background: var(--light-clr);
+    }
+
+    .dark {
+        --clr-background: var(--dark-clr);
+        --clr-foreground: var(--light-clr);
+    }
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+    /* body {
+        font-family: "Poppins", sans-serif;
+        background: var(--clr-background);
+        color: var(--clr-foreground);
+    } */
+
+    .toggle-circle {
+        transition: transform 500ms ease-out;
+    }
+
+    .light .toggle-circle {
+        transform: translateX(-15%);
+    }
+
+    .toggle-sun {
+        transform-origin: center center;
+        transition: transform 750ms cubic-bezier(0.11, 0.14, 0.29, 1.32);
+    }
+
+    .moon-mask,
+    .sun-core,
+    .sun-rays {
+        transition: 750ms ease-out;
+        transform-origin: center center;
+    }
+    .dark .moon-mask {
+        r: 9;
+        cx: 12;
+        cy: 4;
+    }
+    .light .moon-mask {
+        r: 5;
+        transform: rotate(-90deg);
+        cx: 20;
+        cy: 0;
+    }
+    .dark .sun-core {
+        transform: rotate(-40deg);
+    }
+    .dark .sun-rays {
+        transform: rotate(-180deg);
+        opacity: 0;
+    }
+    @keyframes pulseToLight {
+        0% {
+            transform: scale(0);
+            opacity: 0.5;
+        }
+        10% {
+            transform: scale(1);
+        }
+        75% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes pulseToDark {
+        0% {
+            transform: scale(0);
+            opacity: 0.5;
+        }
+        10% {
+            transform: scale(1);
+        }
+        75% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+            transform: scale(1);
+        }
+    }
+    .light .toggle-sun {
+        transform: rotate(0.5turn);
+    }
+    .light .sun-rays,
+    .light .sun-core {
+        color: var(--sun-clr);
+        fill: var(--sun-clr);
+    }
+</style>

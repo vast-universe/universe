@@ -1,0 +1,105 @@
+---
+import Header from "../components/Header/Header.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Universe-专属博客">
+    <Header />
+    <main
+        class="grid min-h-full place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8 dark:bg-black"
+    >
+        <div class="text-center">
+            <div class="flex items-center justify-center text-8xl">
+                <div class="not-found text-[#954EEC]" title="404">404</div>
+            </div>
+            <h1
+                class="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl dark:text-white"
+            >
+                页面未找到
+            </h1>
+            <p class="mt-6 text-base leading-7 text-gray-600 dark:text-white">
+                抱歉，我们找不到您要查找的页面。
+            </p>
+            <div class="mt-10 flex items-center justify-center gap-x-6">
+                <a
+                    href="/"
+                    class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    >Go back home</a
+                >
+                <a
+                    href="/"
+                    class="text-sm font-semibold text-gray-900 dark:text-white"
+                    >联系我们 <span aria-hidden="true">&rarr;</span></a
+                >
+            </div>
+        </div>
+    </main>
+</Layout>
+
+<style>
+    @import url("https://fonts.googleapis.com/css?family=Fira+Mono:400");
+    .not-found {
+        animation: glitch 1s linear infinite;
+    }
+
+    @keyframes glitch {
+        2%,
+        64% {
+            transform: translate(2px, 0) skew(0deg);
+        }
+        4%,
+        60% {
+            transform: translate(-2px, 0) skew(0deg);
+        }
+        62% {
+            transform: translate(0, 0) skew(5deg);
+        }
+    }
+
+    .not-found:before,
+    .not-found:after {
+        content: attr(title);
+        position: absolute;
+        left: 0;
+    }
+
+    .not-found:before {
+        animation: glitchTop 1s linear infinite;
+        clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+    }
+
+    @keyframes glitchTop {
+        2%,
+        64% {
+            transform: translate(2px, -2px);
+        }
+        4%,
+        60% {
+            transform: translate(-2px, 2px);
+        }
+        62% {
+            transform: translate(13px, -1px) skew(-13deg);
+        }
+    }
+
+    .not-found:after {
+        animation: glitchBotom 1.5s linear infinite;
+        clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+        -webkit-clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+    }
+
+    @keyframes glitchBotom {
+        2%,
+        64% {
+            transform: translate(-2px, 0);
+        }
+        4%,
+        60% {
+            transform: translate(-2px, 0);
+        }
+        62% {
+            transform: translate(-22px, 5px) skew(21deg);
+        }
+    }
+</style>
