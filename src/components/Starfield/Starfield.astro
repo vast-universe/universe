@@ -63,7 +63,7 @@
 
     const container = document.querySelector("#starfield") as HTMLElement;
     // const container = document.querySelector("html") as HTMLElement;
-    const { className } = document.querySelector("body") as HTMLElement;
+    // const { className } = document.querySelector("body") as HTMLElement;
     invariant(container, "container should not be null");
     const resizeObserver = new ResizeObserver(setup);
     resizeObserver.observe(container);

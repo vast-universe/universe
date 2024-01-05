@@ -8,7 +8,6 @@ import Icon from "../components/Icon/Icon.astro";
 import TerminnalText from "../components/TerminnalText/TerminnalText.astro";
 import TextGradient from "../components/TextGradient/TextGradient.astro";
 import Card from "../components/Card/Card.astro";
-import githubImg from "../assets/github.png";
 import { personal, projects } from "../data/private.json";
 import group from "../data/group.json";
 ---
@@ -19,7 +18,7 @@ import group from "../data/group.json";
     <!-- <Banners /> -->
     <main class="m-auto w-[1200px] max-w-[calc(100%-2rem)] p-4 text-xl">
         <div class="anim relative h-[calc(100vh-6rem)] overflow-hidden">
-            <Icon icon="line" client:visible class="h-full" />
+            <Icon icon="line" class="h-full" />
             <div
                 class="absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2 transform"
             >
@@ -139,10 +138,18 @@ import group from "../data/group.json";
                 <div
                     class="-ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden"
                 >
-                    <Image
+                    <!-- <Image
                         class="w-[48rem] max-w-none rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
-                        src={githubImg}
+                        src="/images/github.png"
                         alt=""
+                    /> -->
+
+                    <Image
+                        src="/images/github.png"
+						class="w-[48rem] max-w-none rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
+                        alt="descriptive text"
+                        width="768"
+                        height="100"
                     />
                 </div>
                 <div
