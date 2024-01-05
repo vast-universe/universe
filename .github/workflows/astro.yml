@@ -66,11 +66,9 @@ jobs:
           node-version: "20"
           cache: 'pnpm'
           cache-dependency-path: ${{ env.BUILD_PATH }}/pnpm-lock.yaml
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v4
-        with:
-          enablement: true
+      # - name: Setup Pages
+      #   id: pages
+      #   uses: actions/configure-pages@v4
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
         working-directory: ${{ env.BUILD_PATH }}
