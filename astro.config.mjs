@@ -3,8 +3,7 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-	base: './',
-	site: "https://vast-universe.github.io/universe/",
+	site: "https://www.universe-hub.cn/",
 	trailingSlash: 'never',
 	integrations: [tailwind()],
 	image: {
