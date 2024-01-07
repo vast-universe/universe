@@ -17,6 +17,9 @@ dependencies:
   '@astrojs/tailwind':
     specifier: ^5.1.0
     version: 5.1.0(astro@4.1.1)(tailwindcss@3.4.1)
+  '@vercel/speed-insights':
+    specifier: ^1.0.2
+    version: 1.0.2
   astro:
     specifier: ^4.1.1
     version: 4.1.1(typescript@5.3.3)
@@ -1274,6 +1277,11 @@ packages:
 
   /@ungap/structured-clone@1.2.0:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==, tarball: https://registry.npmmirror.com/@ungap/structured-clone/-/structured-clone-1.2.0.tgz}
+    dev: false
+
+  /@vercel/speed-insights@1.0.2:
+    resolution: {integrity: sha512-y5HWeB6RmlyVYxJAMrjiDEz8qAIy2cit0fhBq+MD78WaUwQvuBnQlX4+5MuwVTWi46bV3klaRMq83u9zUy1KOg==, tarball: https://registry.npmmirror.com/@vercel/speed-insights/-/speed-insights-1.0.2.tgz}
+    requiresBuild: true
     dev: false
 
   /@volar/kit@1.10.10(typescript@5.3.3):
