@@ -1,0 +1,35 @@
+---
+import { getEntry } from "astro:content";
+import { resolveImage } from "../../content/authors/_resolveImage.js";
+
+type Props = {
+    name?: string;
+    image?: string;
+    lg?: boolean;
+};
+
+let { name, image, lg = false } = Astro.props;
+
+if (!image && name) {
+    const author = await getEntry("authors", name);
+    image = author && (await resolveImage(author))?.src;
+}
+---
+
+{
+    image && (
+        <img
+            class:list={[
+                "border-astro-gray-100 my-0 inline-block rounded-full border",
+                lg ? "h-6 w-6 md:h-10 md:w-10" : "h-6 w-6",
+            ]}
+            src={image}
+            alt=""
+            aria-hidden="true"
+            width={48}
+            height={48}
+            loading="lazy"
+            decoding="async"
+        />
+    )
+}

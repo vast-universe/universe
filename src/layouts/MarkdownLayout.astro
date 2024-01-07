@@ -1,0 +1,10 @@
+---
+import Layout from "./Layout.astro";
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={frontmatter.title}>
+    <main class="m-auto w-[1200px] max-w-[calc(100%-2rem)] p-4 text-xl">
+        <slot />
+    </main>
+</Layout>

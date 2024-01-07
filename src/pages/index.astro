@@ -1,8 +1,6 @@
 ---
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header/Header.astro";
-import Footer from "../components/Footer/Footer.astro";
 import Starfield from "../components/Starfield/Starfield.astro";
 import Icon from "../components/Icon/Icon.astro";
 import TerminnalText from "../components/TerminnalText/TerminnalText.astro";
@@ -10,11 +8,13 @@ import TextGradient from "../components/TextGradient/TextGradient.astro";
 import Card from "../components/Card/Card.astro";
 import { personal, projects } from "../data/private.json";
 import group from "../data/group.json";
+import { getCollection } from "astro:content";
+
+const blogs = await getCollection("blogs");
 ---
 
 <Layout title="Universe-专属博客">
     <Starfield />
-    <Header />
     <!-- <Banners /> -->
     <main class="m-auto w-[1200px] max-w-[calc(100%-2rem)] p-4 text-xl">
         <div class="anim relative h-[calc(100vh-6rem)] overflow-hidden">
@@ -36,7 +36,7 @@ import group from "../data/group.json";
             <div class="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
                 <div class="text-center">
                     <p
-                        class="mt-1 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl dark:text-white"
+                        class="mt-1 text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl lg:text-6xl"
                     >
                         关于我的博客
                     </p>
@@ -54,18 +54,20 @@ import group from "../data/group.json";
                 <dl
                     class="grid grid-cols-2 gap-x-8 gap-y-16 text-center lg:grid-cols-4"
                 >
-                    <div class="mx-auto flex max-w-xs flex-col gap-y-4">
-                        <dt
-                            class="text-base leading-7 text-gray-600 dark:text-[#9CA3AF]"
-                        >
-                            博客文章收录
-                        </dt>
-                        <dd
-                            class="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl dark:text-white"
-                        >
-                            0
-                        </dd>
-                    </div>
+                    <a href="/blog">
+                        <div class="mx-auto flex max-w-xs flex-col gap-y-4">
+                            <dt
+                                class="text-base leading-7 text-gray-600 dark:text-[#9CA3AF]"
+                            >
+                                博客文章收录
+                            </dt>
+                            <dd
+                                class="order-first text-3xl font-semibold tracking-tight text-gray-900 dark:text-white sm:text-5xl"
+                            >
+                                {blogs.length}
+                            </dd>
+                        </div>
+                    </a>
                     <div class="mx-auto flex max-w-xs flex-col gap-y-4">
                         <dt
                             class="text-base leading-7 text-gray-600 dark:text-[#9CA3AF]"
@@ -73,7 +75,7 @@ import group from "../data/group.json";
                             开源项目
                         </dt>
                         <dd
-                            class="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl dark:text-white"
+                            class="order-first text-3xl font-semibold tracking-tight text-gray-900 dark:text-white sm:text-5xl"
                         >
                             2
                         </dd>
@@ -85,7 +87,7 @@ import group from "../data/group.json";
                             最佳实践
                         </dt>
                         <dd
-                            class="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl dark:text-white"
+                            class="order-first text-3xl font-semibold tracking-tight text-gray-900 dark:text-white sm:text-5xl"
                         >
                             19
                         </dd>
@@ -97,7 +99,7 @@ import group from "../data/group.json";
                             面试题
                         </dt>
                         <dd
-                            class="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl dark:text-white"
+                            class="order-first text-3xl font-semibold tracking-tight text-gray-900 dark:text-white sm:text-5xl"
                         >
                             46
                         </dd>
@@ -159,7 +161,7 @@ import group from "../data/group.json";
                                                 <dt class="text-sm font-medium text-gray-900 dark:text-white">
                                                     {label}
                                                 </dt>
-                                                <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 dark:text-white">
+                                                <dd class="mt-1 text-sm leading-6 text-gray-700 dark:text-white sm:col-span-2 sm:mt-0">
                                                     {value}
                                                 </dd>
                                             </div>
@@ -207,7 +209,6 @@ import group from "../data/group.json";
             {group.map((item) => <Card {...item} />)}
         </ul>
     </main>
-    <Footer />
 </Layout>
 
 <script type="text/javascript">

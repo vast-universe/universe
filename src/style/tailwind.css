@@ -1,0 +1,72 @@
+/* @import "./prose.css"; */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .prose {
+        line-height: 1.75em;
+    }
+
+    .prose > p {
+        @apply my-4;
+    }
+
+    .prose > hr {
+        @apply my-8;
+    }
+
+    .prose > h2 {
+        @apply mb-4 mt-10 text-[32px] font-normal leading-[38px];
+    }
+
+    .prose > h3 {
+        @apply mb-4 mt-10 text-2xl font-normal leading-tight;
+    }
+
+    .prose > img {
+        @apply my-4;
+    }
+
+    .prose strong {
+        @apply font-medium;
+    }
+
+    .prose ul {
+        @apply my-4 pl-8;
+    }
+
+    /* the ::marker selector doesn't allow customizing the spacing around the marker as easily */
+    .prose ul li::before {
+        content: "";
+        background: url("../icons/star.svg") center no-repeat;
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        margin-right: 8px;
+        margin-left: -18px;
+    }
+
+    .prose ol {
+        @apply my-4 list-inside list-decimal pl-4;
+    }
+    .prose ol ::marker {
+        @apply inline-block font-mono font-bold;
+    }
+
+    .prose li {
+        @apply my-2;
+    }
+
+    .prose :where(a) {
+        @apply font-bold underline underline-offset-2 hover:no-underline;
+    }
+
+    .prose > p code {
+        @apply mx-0.5 inline-block rounded-lg px-2 align-baseline text-sm leading-6;
+    }
+
+    .prose > pre {
+        @apply my-6 rounded-md border bg-transparent px-5 py-3 text-sm;
+    }
+}

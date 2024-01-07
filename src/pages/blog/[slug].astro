@@ -1,0 +1,22 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+    const blogs = await getCollection("blogs");
+    return blogs.map((post) => ({
+        params: { slug: post.slug },
+        props: { post },
+    }));
+}
+
+const { post } = Astro.props;
+const { render } = post;
+const { Content } = await render();
+---
+
+<Layout title="博客合集">
+    <main class="prose m-auto w-[1200px] max-w-[calc(100%-2rem)] p-4 text-xl">
+        <Content />
+    </main>
+</Layout>

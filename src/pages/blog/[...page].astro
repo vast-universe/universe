@@ -1,0 +1,39 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import BlogCard from "../../components/Blog/BlogCard.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+import type { GetStaticPathsOptions, Page } from "astro";
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+    const blogs = await getCollection("blogs");
+    const sortedPosts = blogs.sort(
+        (a: any, b: any) =>
+            b.data.publishDate.getTime() - a.data.publishDate.getTime(),
+    );
+    return paginate(sortedPosts, { pageSize: 12 });
+}
+
+const { page } = Astro.props as {
+    page: Page<CollectionEntry<"blogs">>;
+};
+---
+
+<Layout title="博客合集">
+    <div class="py-12">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="mx-auto max-w-2xl lg:mx-0">
+                <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">
+                    博客合集
+                </h2>
+                <p class="mt-2 text-lg leading-8 text-gray-600 dark:text-white">
+                    汇聚了丰富的主题、观点和技术分享，为读者提供多元化的知识和见解
+                </p>
+            </div>
+            <div
+                class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-2"
+            >
+                {page.data.map((item) => <BlogCard {...item} />)}
+            </div>
+        </div>
+    </div>
+</Layout>
