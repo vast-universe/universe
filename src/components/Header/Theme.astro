@@ -12,7 +12,6 @@ import Icon from "../Icon/Icon.astro";
     themeToggle.addEventListener("click", () => {
         const isLight = document.body.classList.contains("light");
         isLight ? enableDarkMode() : enableLightMode();
-        console.log(isLight);
         localStorage.setItem("theme", isLight ? "dark" : "light");
     });
 
@@ -25,25 +24,6 @@ import Icon from "../Icon/Icon.astro";
         document.body.classList.remove("dark");
         document.body.classList.add("light");
     }
-
-    function setThemePreference() {
-        const theme = localStorage.getItem("theme");
-        if (theme) {
-            if (theme === "dark") {
-                enableDarkMode();
-                return;
-            }
-            enableLightMode();
-            return;
-        }
-        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-            enableDarkMode();
-            return;
-        }
-        enableLightMode();
-    }
-
-    document.onload = setThemePreference();
 </script>
 
 <style type="text/css" is:global>
