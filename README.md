@@ -1,54 +1,56 @@
-# Astro Starter Kit: Basics
+# Universe-专属博客
+
+`没有什么比时间更具有说服力了，因为时间无需通知我们就可以改变一切`
+
+## 简介
+
+沉淀观点和技术分享，为读者提供多元化的知识和见解
+
+## 安装说明
+
+Node.js -`v18.14.1`或更高版本
+
+## 快速开始
 
 ```sh
-npm create astro@latest -- --template basics
+pnpm install
+pnpm dev
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+`astro:content` astro导入报错执行下面命令
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+```sh
+pnpm astro sync
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 项目说明
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+路由以文件路由规则使用
 
-Any static assets, like images, can be placed in the `public/` directory.
+文件后缀`.astro`存放在`src/pages/`目录中
 
-## 🧞 Commands
+`.md` `.mdx` 文件存放`src/content/`
 
-All commands are run from the root of the project, from a terminal:
+`React` `Vue` `Svelte` `Preact` 需要插件支持，可关注文档
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## 文档链接
 
-## 👀 Want to learn more?
+项目相关文档信息
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+[astro文档](https://docs.astro.build/zh-cn/getting-started/)
+
+[tailwindcss文档](https://tailwindcss.com/docs/installation)
+
+## 作者信息
+
+> 🧑‍🚀 黄鹏
+>
+> 作为一位杰出的CV 四年前端工程师 ，具备深厚的技术功底和创造性的思维，专注于打造引人入胜的用户体验。
+>
+>拥有 一年全栈开发经验 ，熟悉JAVA开发流程，对全栈开发有着深刻理解，为项目成功实现提供坚实支持。
+
+## 联系方式
+
+- 微信: Heaven_602
+- Email: 1157287320@qq.com
+
