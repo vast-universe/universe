@@ -7,7 +7,7 @@ import TerminnalText from "../components/TerminnalText/TerminnalText.astro";
 import TextGradient from "../components/TextGradient/TextGradient.astro";
 import Card from "../components/Card/Card.astro";
 import { personal, projects } from "../data/private.json";
-import * as group from "../data/group.json";
+import group from "../data/group.json";
 import { getCollection } from "astro:content";
 
 const blogs = await getCollection("blogs");
