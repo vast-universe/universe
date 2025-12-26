@@ -1,7 +1,6 @@
 import {
   Hero,
   Stats,
-  Features,
   FeaturedProjects,
   RecentPosts,
   ContactCTA,
@@ -12,7 +11,6 @@ export default function Home() {
     <div className="bg-background">
       <Hero />
       <Stats />
-      <Features />
       <FeaturedProjects />
       <RecentPosts />
       <ContactCTA />
