@@ -1,0 +1,58 @@
+# React 基础
+
+React 是一个用于构建用户界面的 JavaScript 库。
+
+## 核心概念
+
+### 组件
+
+组件是 React 的核心。你可以把 UI 拆分成独立、可复用的部分。
+
+```jsx
+function Welcome({ name }) {
+  return <h1>Hello, {name}</h1>
+}
+```
+
+### JSX
+
+JSX 是 JavaScript 的语法扩展，让你可以在 JS 中写类似 HTML 的代码：
+
+```jsx
+const element = <h1>Hello, world!</h1>
+```
+
+### Props
+
+Props 是组件的输入，从父组件传递到子组件：
+
+```jsx
+function Avatar({ src, alt }) {
+  return <img src={src} alt={alt} />
+}
+
+// 使用
+<Avatar src="/avatar.png" alt="用户头像" />
+```
+
+### State
+
+State 是组件的内部状态，可以随时间变化：
+
+```jsx
+import { useState } from 'react'
+
+function Counter() {
+  const [count, setCount] = useState(0)
+  
+  return (
+    <button onClick={() => setCount(count + 1)}>
+      点击了 {count} 次
+    </button>
+  )
+}
+```
+
+## 下一步
+
+学完基础后，可以继续学习 Hooks 的更多用法。

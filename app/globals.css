@@ -1,22 +1,75 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1f2024;
+  /* Highlight - 主色蓝 */
+  --primary: #006ffd;
+  --primary-dark: #2897ff;
+  --primary-medium: #6fbaff;
+  --primary-light: #b3daff;
+  --primary-lightest: #eaf2ff;
+  /* Neutral Light */
+  --neutral-100: #c5c6cc;
+  --neutral-200: #d4d6dd;
+  --neutral-300: #e8e9f1;
+  --neutral-400: #f8f9fe;
+  --neutral-500: #ffffff;
+  /* Support */
+  --success: #298267;
+  --success-medium: #3ac0a0;
+  --success-light: #e7f4e8;
+  --warning: #e86339;
+  --warning-medium: #ffb37c;
+  --warning-light: #fff4e4;
+  --error: #ed3241;
+  --error-medium: #ff616d;
+  --error-light: #ffe2e5;
+}
+
+.dark {
+  --background: #1f2024;
+  --foreground: #ffffff;
+  /* Highlight - Dark Mode */
+  --primary: #2897ff;
+  --primary-dark: #6fbaff;
+  --primary-medium: #6fbaff;
+  --primary-light: #3a3a40;
+  --primary-lightest: #2f3036;
+  /* Neutral Dark */
+  --neutral-100: #8f9098;
+  --neutral-200: #71727a;
+  --neutral-300: #494a50;
+  --neutral-400: #2f3036;
+  --neutral-500: #1f2024;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-medium: var(--primary-medium);
+  --color-primary-light: var(--primary-light);
+  --color-primary-lightest: var(--primary-lightest);
+  --color-neutral-100: var(--neutral-100);
+  --color-neutral-200: var(--neutral-200);
+  --color-neutral-300: var(--neutral-300);
+  --color-neutral-400: var(--neutral-400);
+  --color-neutral-500: var(--neutral-500);
+  --color-success: var(--success);
+  --color-success-medium: var(--success-medium);
+  --color-success-light: var(--success-light);
+  --color-warning: var(--warning);
+  --color-warning-medium: var(--warning-medium);
+  --color-warning-light: var(--warning-light);
+  --color-error: var(--error);
+  --color-error-medium: var(--error-medium);
+  --color-error-light: var(--error-light);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {

@@ -1,0 +1,88 @@
+# React Hooks 详解
+
+Hooks 让你在函数组件中使用 state 和其他 React 特性。
+
+## 常用 Hooks
+
+### useState
+
+管理组件状态：
+
+```jsx
+const [value, setValue] = useState(initialValue)
+```
+
+### useEffect
+
+处理副作用（数据获取、订阅、DOM 操作等）：
+
+```jsx
+useEffect(() => {
+  // 副作用逻辑
+  document.title = `点击了 ${count} 次`
+  
+  // 清理函数（可选）
+  return () => {
+    // 清理逻辑
+  }
+}, [count]) // 依赖数组
+```
+
+### useRef
+
+获取 DOM 引用或保存可变值：
+
+```jsx
+const inputRef = useRef(null)
+
+// 聚焦输入框
+inputRef.current.focus()
+```
+
+### useMemo
+
+缓存计算结果：
+
+```jsx
+const expensiveValue = useMemo(() => {
+  return computeExpensiveValue(a, b)
+}, [a, b])
+```
+
+### useCallback
+
+缓存函数引用：
+
+```jsx
+const handleClick = useCallback(() => {
+  doSomething(a, b)
+}, [a, b])
+```
+
+## 自定义 Hook
+
+你可以创建自己的 Hook 来复用逻辑：
+
+```jsx
+function useWindowSize() {
+  const [size, setSize] = useState({ width: 0, height: 0 })
+  
+  useEffect(() => {
+    function handleResize() {
+      setSize({ width: window.innerWidth, height: window.innerHeight })
+    }
+    
+    window.addEventListener('resize', handleResize)
+    handleResize()
+    
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+  
+  return size
+}
+```
+
+## 规则
+
+1. 只在顶层调用 Hook，不要在循环、条件或嵌套函数中调用
+2. 只在 React 函数组件或自定义 Hook 中调用
